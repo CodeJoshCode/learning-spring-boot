@@ -12,7 +12,7 @@ for a simple hello world application.
 @RestController
 public class HelloController {
 
-    // mapping at / to return a thymeleaf page with hello world text in the body
+    // mapping at / to return a hello world text in the response body
     @GetMapping("/")
     public String index(){
         return "Greetings from Josh in Spring Boot!";

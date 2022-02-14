@@ -14,6 +14,10 @@ public class HelloControllerIntegrationTest {
     @Autowired
     private TestRestTemplate template;
 
+    /*
+        perform a GET request and expect a success status
+        and a response with the basic string we provide at that input
+    */
     @Test
     public void getHello() throws Exception{
         ResponseEntity<String> response =  template.getForEntity("/", String.class);

@@ -18,7 +18,7 @@ public class HelloControllerTest {
     private MockMvc mockMvc;
 
     /*
-        perform an GET request and expect a success status
+        mocks a GET request and expect a success status
         and a response with the basic string we provide at that input
     */
     @Test
