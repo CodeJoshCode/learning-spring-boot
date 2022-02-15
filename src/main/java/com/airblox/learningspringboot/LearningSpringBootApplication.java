@@ -18,7 +18,7 @@ public class LearningSpringBootApplication {
 
 	// Runs on start up. Collects all the beans and prints them to standard output 
 	// for analysis.
-	@Bean
+	// @Bean commenting out to stop printing behavior on startup
 	public CommandLineRunner commandLineRunner(ApplicationContext context){
 		return (args) -> {
 			System.out.println("Let's inspect the beans provided by Spring Boot");
