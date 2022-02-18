@@ -13,7 +13,7 @@ for a simple hello world application.
 @RestController
 public class HelloController {
 
-    @Value("${response.text:\"I am a happy man\"}")
+    @Value("${response.text:indicatesanerror}")
     private String responseText;
 
     // mapping at / to return a hello world text in the response body
