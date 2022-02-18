@@ -1,5 +1,6 @@
 package com.airblox.learningspringboot;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,9 +13,12 @@ for a simple hello world application.
 @RestController
 public class HelloController {
 
+    @Value("${response.text:\"I am a happy man\"}")
+    private String responseText;
+
     // mapping at / to return a hello world text in the response body
     @GetMapping("/")
     public String index(){
-        return "Greetings from Josh in Spring Boot!";
+        return responseText;
     }
 }
