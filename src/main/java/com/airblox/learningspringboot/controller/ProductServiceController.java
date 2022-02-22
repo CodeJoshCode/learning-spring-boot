@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -37,7 +36,10 @@ public class ProductServiceController{
     }
 
     @RequestMapping(value = "/products/{id}", method=RequestMethod.PUT)
-    public ResponseEntity<Object> updateProduct(@PathVariable("id") String id, @RequestBody Product product){
+    public ResponseEntity<Object> updateProduct(@PathVariable("id") String id, @RequestBody Product product) throws ProductNotFoundException{
+        if(!productRepo.containsKey(id)){
+            throw new ProductNotFoundException();
+        }
         productRepo.remove(id);
         product.setId(id);
         productRepo.put(id, product);
