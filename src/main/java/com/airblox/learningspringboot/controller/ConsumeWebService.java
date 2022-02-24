@@ -54,7 +54,7 @@ public class ConsumeWebService {
 
 
     // auth headers will always be the same in this case
-    private HttpHeaders getHeaders(){
+    public static HttpHeaders getHeaders(){
         HttpHeaders headers = new HttpHeaders(){{
             String auth = "user" + ":" + "password";
             byte[] encodedAuth = Base64.encodeBase64( 
