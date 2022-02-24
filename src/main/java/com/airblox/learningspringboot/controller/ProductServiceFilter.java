@@ -1,6 +1,7 @@
 package com.airblox.learningspringboot.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -19,8 +20,12 @@ public class ProductServiceFilter implements Filter{
             throws IOException, ServletException {
         System.out.println("Remote host: " + request.getRemoteHost());
         System.out.println("Remote address: " + request.getRemoteAddr());
+        
         filterChain.doFilter(request, response);
         // TODO: figure out how response filtering work
+        // seems like it would require a wrapper class that extends HTTPServletResponseWrapper
+        // but how does that create the stream back to the client?
+
     }
 
     @Override

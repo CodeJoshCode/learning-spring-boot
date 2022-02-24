@@ -9,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class LearningSpringBootApplication {
@@ -18,6 +20,11 @@ public class LearningSpringBootApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LearningSpringBootApplication.class, args);
 		logger.info("This is an INFO message...");
+	}
+
+	@Bean
+	public RestTemplate getRestTemplate(){
+		return new RestTemplate();
 	}
 
 	// Runs on start up. Collects all the beans and prints them to standard output 

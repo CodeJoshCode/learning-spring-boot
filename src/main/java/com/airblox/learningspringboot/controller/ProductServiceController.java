@@ -52,12 +52,12 @@ public class ProductServiceController{
             return new ResponseEntity<>(productRepo.values(), HttpStatus.OK);
     }
 
-    @RequestMapping(value="/product/{id}", method=RequestMethod.DELETE)
-    public ResponseEntity<Object> delete(@RequestParam("id") String id)
+    @RequestMapping(value="/products/{id}", method=RequestMethod.DELETE)
+    public ResponseEntity<Object> delete(@PathVariable("id") String id)
     {
-        productRepo.remove("id");
+        productRepo.remove(id);
         return new ResponseEntity<>("Successfully deleted Product", HttpStatus.OK);
     }
 
-    
+
 }
