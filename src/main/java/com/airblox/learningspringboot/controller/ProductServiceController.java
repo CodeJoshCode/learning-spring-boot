@@ -23,6 +23,7 @@ public class ProductServiceController{
 
     @RequestMapping(value = "/products", method=RequestMethod.POST)
     public ResponseEntity<Object> createProduct(@RequestBody Product product){
+        System.out.println(product.getName());
         productService.createProduct(product);
         return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED); 
     }

@@ -25,6 +25,7 @@ public class ProductServiceImplementation implements ProductService {
 
     @Override
     public void createProduct(Product product) {
+        System.out.println(product.getName());
         productRepo.put(product.getId(), product);
         
     }

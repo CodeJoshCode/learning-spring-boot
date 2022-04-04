@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add products</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            // function on button click
+            $("button").click(function(){
+                var productModel = {
+                    id: "3",
+                    name: "Ginger"
+                };
+                var requestJSON = JSON.stringify(productModel);
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8080/products",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    data: requestJSON,
+                    success: function(data){
+                        alert(data);
+                    },
+                    error: function(data){
+                        alert("erroR");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>Click here to submit the form.</button>
+</body>
+</html>
