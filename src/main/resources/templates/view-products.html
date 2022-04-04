@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Product Listing
+    </title>
+</head>
+<body>
+<div>
+    <table id="productsJson">
+        <th>Product Id</th>
+        <th>Product Name</th>
+    </table>
+</div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   $.getJSON("http://localhost:8080/products", function(result){
+      $.each(result, function(key,value) {
+         $("#productsJson").append("<tr><td>"+value.id+"</td><td>"+value.name+"</td>></tr>");
+      });
+   });
+});
+
+</script>
+</html>
