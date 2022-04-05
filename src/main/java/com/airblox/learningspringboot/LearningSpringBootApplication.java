@@ -18,8 +18,11 @@ public class LearningSpringBootApplication {
 	private static final Logger logger = LoggerFactory.getLogger(LearningSpringBootApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(LearningSpringBootApplication.class, args);
-		logger.info("This is an INFO message...");
+		try {
+			SpringApplication.run(LearningSpringBootApplication.class, args);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Bean
